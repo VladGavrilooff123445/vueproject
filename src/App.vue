@@ -1,17 +1,37 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>Услуги</h1>
+    <services
+        v-bind:services="services"
+    />
+    <Result
+        v-bind:services="services"
+    />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+
+import Services from "@/components/services";
+import Result from "@/components/result";
+
 
 export default {
   name: 'App',
+  data() {
+    return {
+      services: [
+        {id: 1, service: 'Веб разработка', price: 300.00, selected: false},
+        {id: 2, service: 'Дизайн', price: 400.00, selected: false},
+        {id: 3, service: 'Интеграция', price: 250.00, selected: false},
+        {id: 4, service: 'Обучение', price: 220.00, selected: false}
+      ]
+    }
+  },
   components: {
-    HelloWorld
+    Result,
+    Services
   }
 }
 </script>
